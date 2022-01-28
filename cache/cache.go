@@ -60,9 +60,6 @@ func (c *Cache) SyncCacheFromFile() error {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 	if err := json.Unmarshal(byteValue, &c.db); err != nil {
-		if len(byteValue) == 0 {
-			return err
-		}
 		return err
 	}
 	return nil
